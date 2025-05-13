@@ -41,13 +41,6 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
             // Navigator.popAndPushNamed(context, LoginScreen.routeName);
           }
         },
-        style: ElevatedButton.styleFrom(
-          backgroundColor: Colors.teal.shade900,
-          padding: const EdgeInsets.symmetric(vertical: 16.0),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(8.0),
-          ),
-        ),
         child: const Text(
           'Send reset code',
           style: TextStyle(fontSize: 18, color: Colors.white),
