@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:pretium_app_clone/utils/reset_password_dialog.dart';
 
 import '../../../common/custom_text_form_field.dart';
-import '../../../common/form_errors.dart';
 import '../../../constants/errors.dart';
-import '../../login/login_screen.dart';
 
 class ResetPasswordForm extends StatefulWidget {
   const ResetPasswordForm({super.key});
@@ -41,9 +40,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
           newPasswordTextField(),
           const SizedBox(height: 20),
           confirmPasswordTextField(),
-          const SizedBox(height: 8.0),
-          FormErrorsWidget(errors: formErrors),
-          const SizedBox(height: 12.0),
+          const SizedBox(height: 20.0),
           resetPasswordButton(context),
         ],
       ),
@@ -61,7 +58,7 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
             _codeController.clear();
             _confirmPasswordController.clear();
             _newPasswordController.clear();
-            Navigator.popAndPushNamed(context, LoginScreen.routeName);
+            ResetPasswordDialog.showResetCodeFailedDialog(context);
           }
         },
         child: const Text(
@@ -79,24 +76,15 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
       icon: Icons.lock_outline,
       obscureText: true,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !formErrors.contains(kPasswordNullError)) {
-          setState(() {
-            formErrors.add(kPasswordNullError);
-          });
-        } else if (value!.length < 8 &&
-            !formErrors.contains(kShortPasswordError)) {
-          setState(() {
-            formErrors.add(kShortPasswordError);
-          });
-        } else if (value != _newPasswordController.text &&
-          !formErrors.contains(kPasswordMatchError)) {
-          setState(() {
-            formErrors.add(kPasswordMatchError);
-          });
+        if (value == null || value.isEmpty) {
+          return 'Confirm password is required';
+        } else if (value.length < 8) {
+          return kShortPasswordError;
+        } else if (value != _newPasswordController.text) {
+          return kPasswordMatchError;
         }
         return null;
-      },
+      }
     );
   }
 
@@ -107,19 +95,15 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
       icon: Icons.lock_outline,
       obscureText: true,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !formErrors.contains(kPasswordNullError)) {
-          setState(() {
-            formErrors.add(kPasswordNullError);
-          });
-        } else if (value!.length < 8 &&
-            !formErrors.contains(kShortPasswordError)) {
-          setState(() {
-            formErrors.add(kShortPasswordError);
-          });
+        if (value == null || value.isEmpty) {
+          return kPasswordNullError;
+        } else if (value.length < 8) {
+          return kShortPasswordError;
+        } else if (value != _newPasswordController.text) {
+          return kPasswordMatchError;
         }
         return null;
-      },
+      }
     );
   }
 
@@ -130,16 +114,10 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
       icon: Icons.lock_reset,
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !formErrors.contains(kemailNullError)) {
-          setState(() {
-            formErrors.add(kemailNullError);
-          });
-        } else if (!emailValidatorRegex.hasMatch(value!) &&
-            !formErrors.contains(kInvalidEmailError)) {
-          setState(() {
-            formErrors.add(kInvalidEmailError);
-          });
+        if (value == null || value.isEmpty) {
+          return kemailNullError;
+        } else if (!emailValidatorRegex.hasMatch(value)) {
+          return kInvalidEmailError;
         }
         return null;
       },

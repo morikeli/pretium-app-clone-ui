@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../common/custom_text_form_field.dart';
-import '../../../common/form_errors.dart';
 import '../../../constants/errors.dart';
 import '../../../utils/reset_password_dialog.dart';
 
@@ -24,7 +23,6 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
       child: Column(
         children: [
           emailTextField(),
-          FormErrorsWidget(errors: formErrors),
           const SizedBox(height: 24.0),
           sendResetCodeButton(context),
         ],
@@ -39,7 +37,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
-            showResetCodeSentDialog(context, _emailController.text);
+            ResetPasswordDialog.showResetCodeSentDialog(context, _emailController.text);
           }
         },
         child: const Text(
@@ -57,16 +55,10 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
       icon: Icons.email_outlined,
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !formErrors.contains(kemailNullError)) {
-          setState(() {
-            formErrors.add(kemailNullError);
-          });
-        } else if (!emailValidatorRegex.hasMatch(value!) &&
-            !formErrors.contains(kInvalidEmailError)) {
-          setState(() {
-            formErrors.add(kInvalidEmailError);
-          });
+        if (value == null || value.isEmpty) {
+          return kemailNullError;
+        } else if (!emailValidatorRegex.hasMatch(value)) {
+          return kInvalidEmailError;
         }
         return null;
       },

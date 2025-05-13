@@ -1,7 +1,6 @@
 import 'package:flutter/material.dart';
 
 import '../../../common/custom_text_form_field.dart';
-import '../../../common/form_errors.dart';
 import '../../../constants/errors.dart';
 import '../../otp/otp_screen.dart';
 
@@ -54,9 +53,7 @@ class _LoginFormState extends State<LoginForm> {
 
           // "Remember Me" checkbox and "Forgot password" text
           checkBoxandForgotPassword(context),
-          const SizedBox(height: 8.0),
-          FormErrorsWidget(errors: widget.formErrors),
-          const SizedBox(height: 12.0),
+          const SizedBox(height: 20.0),
           loginButton(context),
         ],
       ),
@@ -117,19 +114,15 @@ class _LoginFormState extends State<LoginForm> {
       icon: Icons.lock_outline,
       obscureText: true,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !widget.formErrors.contains(kPasswordNullError)) {
-          setState(() {
-            widget.formErrors.add(kPasswordNullError);
-          });
-        } else if (value!.length < 8 &&
-            !widget.formErrors.contains(kShortPasswordError)) {
-          setState(() {
-            widget.formErrors.add(kShortPasswordError);
-          });
+         if (value == null || value.isEmpty) {
+          return kPasswordNullError;
+        } else if (value.length < 8) {
+          return kShortPasswordError;
+        } else if (value != widget.passwordController.text) {
+          return kPasswordMatchError;
         }
         return null;
-      },
+      }
     );
   }
 
@@ -140,16 +133,10 @@ class _LoginFormState extends State<LoginForm> {
       icon: Icons.email_outlined,
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !widget.formErrors.contains(kemailNullError)) {
-          setState(() {
-            widget.formErrors.add(kemailNullError);
-          });
-        } else if (!emailValidatorRegex.hasMatch(value!) &&
-            !widget.formErrors.contains(kInvalidEmailError)) {
-          setState(() {
-            widget.formErrors.add(kInvalidEmailError);
-          });
+        if (value == null || value.isEmpty) {
+          return kemailNullError;
+        } else if (!emailValidatorRegex.hasMatch(value)) {
+          return kInvalidEmailError;
         }
         return null;
       },

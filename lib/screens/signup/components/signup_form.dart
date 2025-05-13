@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:pretium_app_clone/screens/login/login_screen.dart';
 
 import '../../../common/custom_text_form_field.dart';
-import '../../../common/form_errors.dart';
 import '../../../constants/errors.dart';
 
 class SignupForm extends StatefulWidget {
@@ -47,9 +46,7 @@ class _SignupFormState extends State<SignupForm> {
           passwordTextField(),
           SizedBox(height: 12.0),
           termsAndConditionsCheckBox(),
-          const SizedBox(height: 8.0),
-          FormErrorsWidget(errors: formErrors),
-          const SizedBox(height: 12.0),
+          const SizedBox(height: 20.0),
           signupButton(context),
         ],
       ),
@@ -101,24 +98,21 @@ class _SignupFormState extends State<SignupForm> {
 
   CustomTextFormField passwordTextField() {
     return CustomTextFormField(
-        controller: _passwordController,
-        label: "Password",
-        icon: Icons.lock_outline,
-        obscureText: true,
-        validator: (value) {
-          if ((value == null || value.isEmpty) &&
-              !formErrors.contains(kPasswordNullError)) {
-            setState(() {
-              formErrors.add(kPasswordNullError);
-            });
-          } else if (value!.length < 8 &&
-              !formErrors.contains(kShortPasswordError)) {
-            setState(() {
-              formErrors.add(kShortPasswordError);
-            });
-          }
-          return null;
-        });
+      controller: _passwordController,
+      label: "Password",
+      icon: Icons.lock_outline,
+      obscureText: true,
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return kPasswordNullError;
+        } else if (value.length < 8) {
+          return kShortPasswordError;
+        } else if (value != _passwordController.text) {
+          return kPasswordMatchError;
+        }
+        return null;
+      }
+    );
   }
 
   CustomTextFormField emailTextField() {
@@ -128,16 +122,10 @@ class _SignupFormState extends State<SignupForm> {
       icon: Icons.email_outlined,
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !formErrors.contains(kemailNullError)) {
-          setState(() {
-            formErrors.add(kemailNullError);
-          });
-        } else if (!emailValidatorRegex.hasMatch(value!) &&
-            !formErrors.contains(kInvalidEmailError)) {
-          setState(() {
-            formErrors.add(kInvalidEmailError);
-          });
+        if (value == null || value.isEmpty) {
+          return kemailNullError;
+        } else if (!emailValidatorRegex.hasMatch(value)) {
+          return kInvalidEmailError;
         }
         return null;
       },
@@ -151,21 +139,12 @@ class _SignupFormState extends State<SignupForm> {
       icon: Icons.person_outline,
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !formErrors.contains(kFirstNameNullError)) {
-          setState(() {
-            formErrors.add(kLastNameNullError);
-          });
-        } else if (value!.length < 2 &&
-            !formErrors.contains(kShortLastNameError)) {
-          setState(() {
-            formErrors.add(kShortLastNameError);
-          });
-        } else if (value.length > 15 &&
-            !formErrors.contains(kLongLastNameError)) {
-          setState(() {
-            formErrors.add(kLongLastNameError);
-          });
+        if (value == null || value.isEmpty) {
+          return kLastNameNullError;
+        } else if (value.length < 2) {
+          return kShortLastNameError;
+        } else if (value.length > 15) {
+          return kLongLastNameError;
         }
         return null;
       },
@@ -179,21 +158,12 @@ class _SignupFormState extends State<SignupForm> {
       icon: Icons.person_outline,
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
-        if ((value == null || value.isEmpty) &&
-            !formErrors.contains(kFirstNameNullError)) {
-          setState(() {
-            formErrors.add(kFirstNameNullError);
-          });
-        } else if (value!.length < 2 &&
-            !formErrors.contains(kShortFirstNameError)) {
-          setState(() {
-            formErrors.add(kShortFirstNameError);
-          });
-        } else if (value.length > 15 &&
-            !formErrors.contains(kLongFirstNameError)) {
-          setState(() {
-            formErrors.add(kLongFirstNameError);
-          });
+        if (value == null || value.isEmpty) {
+          return kFirstNameNullError;
+        } else if (value.length < 2) {
+          return kShortFirstNameError;
+        } else if (value.length > 15) {
+          return kLongFirstNameError;
         }
         return null;
       },
