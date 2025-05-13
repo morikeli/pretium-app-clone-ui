@@ -103,24 +103,25 @@ class _LoginFormState extends State<LoginForm> {
 
   CustomTextFormField passwordTextField() {
     return CustomTextFormField(
-        controller: widget.passwordController,
-        label: "Password",
-        icon: Icons.lock_outline,
-        obscureText: true,
-        validator: (value) {
-          if ((value == null || value.isEmpty) &&
-              !widget.formErrors.contains(kPasswordNullError)) {
-            setState(() {
-              widget.formErrors.add(kPasswordNullError);
-            });
-          } else if (value!.length < 8 &&
-              !widget.formErrors.contains(kShortPasswordError)) {
-            setState(() {
-              widget.formErrors.add(kShortPasswordError);
-            });
-          }
-          return null;
-        });
+      controller: widget.passwordController,
+      label: "Password",
+      icon: Icons.lock_outline,
+      obscureText: true,
+      validator: (value) {
+        if ((value == null || value.isEmpty) &&
+            !widget.formErrors.contains(kPasswordNullError)) {
+          setState(() {
+            widget.formErrors.add(kPasswordNullError);
+          });
+        } else if (value!.length < 8 &&
+            !widget.formErrors.contains(kShortPasswordError)) {
+          setState(() {
+            widget.formErrors.add(kShortPasswordError);
+          });
+        }
+        return null;
+      },
+    );
   }
 
   CustomTextFormField emailTextField() {
