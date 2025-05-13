@@ -26,7 +26,7 @@ class OtpScreenBody extends StatelessWidget {
     return Text.rich(
       textAlign: TextAlign.center,
       TextSpan(
-        text: "Didn't recieve code?  ",
+        text: "Didn't receive code?  ",
         children: [
           TextSpan(
             text: 'Resend Code',
