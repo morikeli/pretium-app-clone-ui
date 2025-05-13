@@ -1,5 +1,5 @@
 flutter_native_splash:
-  color: "#40E0D0"
+  color: "#008080"
   
   # The image parameter allows you to specify an image used in the splash screen.  It must be a
   # png file and should be sized for 4x pixel density.
@@ -11,7 +11,7 @@ flutter_native_splash:
   # parameters from above. If the image_dark parameter is specified, color_dark or
   # background_image_dark must be specified.  color_dark and background_image_dark cannot both be
   # set.
-  color_dark: "#40E0D0"
+  color_dark: "#008080"
   image_dark: assets/imgs/splash/pretium-logo.png
 
   # From Android 12 onwards, the splash screen is handled differently than in previous versions.
@@ -30,7 +30,7 @@ flutter_native_splash:
     #image: assets/android12splash.png
 
     # Splash screen background color.
-    color: "#40E0D0"
+    color: "#008080"
     #branding: assets/dart.png
 
     # App icon background color.
@@ -44,7 +44,7 @@ flutter_native_splash:
     # parameters from above.
     image_dark: assets/imgs/splash/pretium-logo.png
     # background_image_dark: "assets/images/splash/manila-city-map.png"
-    color_dark: "#40E0D0"
+    color_dark: "#008080"
     #branding_dark: assets/dart.png
     # icon_background_color_dark: "#eeeeee"
 
