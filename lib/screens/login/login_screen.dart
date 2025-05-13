@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:pretium_app_clone/screens/login/components/form_component.dart';
+import 'package:pretium_app_clone/screens/login/components/login_form.dart';
 
 class LoginScreen extends StatefulWidget {
   static String routeName = '/login';
@@ -37,7 +37,7 @@ class _LoginScreenState extends State<LoginScreen> {
             formTitle(),
             formSubTitle(),
             const SizedBox(height: 40),
-            FormComponent(
+            LoginForm(
               formKey: _formKey,
               formErrors: formErrors,
               emailController: _emailController,
