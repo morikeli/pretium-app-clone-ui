@@ -25,7 +25,7 @@ class PretiumFinanceApp extends StatelessWidget {
       // darkTheme: PretiumAppTheme.darkTheme,
       theme: PretiumAppTheme.lightTheme,
       home: LoginScreen(),
-      initialRoute: '/login',
+      initialRoute: '/onboarding-screen',
       routes: routes,
     );
   }
