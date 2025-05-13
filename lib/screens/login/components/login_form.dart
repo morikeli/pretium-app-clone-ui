@@ -114,7 +114,7 @@ class _LoginFormState extends State<LoginForm> {
               onPressed: () {
                 if (widget.formKey.currentState!.validate()) {
                   widget.formKey.currentState!.save();
-                  Navigator.popAndPushNamed(context, OtpScreen.routeName);
+                  Navigator.pushNamed(context, OtpScreen.routeName);
                 }
               },
               style: ElevatedButton.styleFrom(
