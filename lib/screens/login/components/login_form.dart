@@ -93,7 +93,7 @@ class _LoginFormState extends State<LoginForm> {
               const Text('Remember me'),
               const Spacer(),
               GestureDetector(
-                onTap: () {},
+                onTap: () => Navigator.pushNamed(context, '/forgot-password'),
                 child: Text(
                   'Forgot password?',
                   style: TextStyle(
