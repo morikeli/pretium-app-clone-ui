@@ -24,11 +24,6 @@ class _SignupFormState extends State<SignupForm> {
   bool _hasReadTermsAndConditions = false;
 
   @override
-  void initState() {
-    super.initState();
-  }
-
-  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
