@@ -1,3 +1,4 @@
+import 'package:country_picker/country_picker.dart';
 import 'package:flutter/material.dart';
 
 import '../../../common/form_errors.dart';
@@ -90,4 +91,39 @@ class _OtpFormState extends State<OtpForm> {
       },
     );
   }
+
+  Widget countryPickerDropdown() {
+    return TextFormField(
+      controller: _countryController,
+      readOnly: true,
+      onTap: () {
+        showCountryPicker(
+          context: context,
+          showPhoneCode: true,
+          onSelect: (Country country) {
+            setState(() {
+              _selectedCountry = country;
+              _countryController.text =
+                  '${country.flagEmoji} ${country.name} (+${country.phoneCode})';
+            });
+          },
+        );
+      },
+      validator: (value) {
+        if (value == null || value.isEmpty) {
+          return 'Please select a country';
+        }
+        return null;
+      },
+      decoration: InputDecoration(
+        hintText: "Select country",
+        labelText: "Country",
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        suffixIcon: const Icon(Icons.arrow_drop_down),
+      ),
+    );
+  }
+
 }
