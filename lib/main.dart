@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_native_splash/flutter_native_splash.dart';
 import 'package:pretium_app_clone/routes.dart';
 import 'package:pretium_app_clone/screens/login/login_screen.dart';
+import 'package:pretium_app_clone/theme/theme.dart';
 
 void main() {
   WidgetsBinding widgetsBinding = WidgetsFlutterBinding.ensureInitialized();
@@ -21,9 +22,8 @@ class PretiumFinanceApp extends StatelessWidget {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
       title: 'Pretium Finance',
-      theme: ThemeData(
-        useMaterial3: true,
-      ),
+      // darkTheme: PretiumAppTheme.darkTheme,
+      theme: PretiumAppTheme.lightTheme,
       home: LoginScreen(),
       initialRoute: '/login',
       routes: routes,
