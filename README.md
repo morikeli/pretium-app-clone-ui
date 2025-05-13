@@ -3,17 +3,18 @@
 ## Mobile app screenshots
 | Splash screen | Onboarding scrren |
 | ------------------------- | ------------------------- |
+| ![Screenshot from 2025-05-13 23-01-13](https://github.com/user-attachments/assets/cf6dde0c-c503-483e-931e-9d84b5039222) | ![Screenshot_20250512-213127](https://github.com/user-attachments/assets/f3983e1d-4c40-4f65-80b9-5bbcbb6e4277) |
 | | |
 | Login | Signup |
-| | |
+| ![Screenshot_20250512-213207](https://github.com/user-attachments/assets/82925b5b-a735-4704-b787-107001d89151) | ![Screenshot_20250512-213216](https://github.com/user-attachments/assets/87fb7be0-c9c4-44d4-9e53-d8faf5386280) |
 | | |
 | | |
 | Forgot password | OTP screen |
+| ![Screenshot from 2025-05-13 13-24-57](https://github.com/user-attachments/assets/6178c3a4-48f0-4300-9b5b-cb23c2b38347) | ![Screenshot from 2025-05-13 22-59-50](https://github.com/user-attachments/assets/86ab646e-7684-4408-995b-8692d74e8108) |
 | | |
 | | |
-| | |
-| Rest password | |
-| | |
+| Reset password | |
+| ![Screenshot from 2025-05-13 13-45-25](https://github.com/user-attachments/assets/4a7b9294-927e-4c89-940b-378466ee0da0) | |
 | | |
 
 ## Overview
