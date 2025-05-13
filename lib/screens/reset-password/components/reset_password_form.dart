@@ -115,9 +115,9 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
       keyboardType: TextInputType.emailAddress,
       validator: (value) {
         if (value == null || value.isEmpty) {
-          return kemailNullError;
-        } else if (!emailValidatorRegex.hasMatch(value)) {
-          return kInvalidEmailError;
+          return kOTPCodeError;
+        } else if (value.length < 4) {
+          return kShortOTPCodeError;
         }
         return null;
       },
