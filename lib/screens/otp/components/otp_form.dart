@@ -48,10 +48,21 @@ class _OtpFormState extends State<OtpForm> {
       width: double.infinity,
       child: ElevatedButton(
         onPressed: () {
+          // verify the user selected a country
+          if (_selectedCountry == null) {
+            setState(() {
+              if (!formErrors.contains("Please select a country")) {
+                formErrors.add("Please select a country");
+              }
+            });
+            return;
+          }
+
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
             // Navigator.popAndPushNamed(context, LoginScreen.routeName);
           }
+
         },
         style: ElevatedButton.styleFrom(
           backgroundColor: Colors.teal.shade900,
