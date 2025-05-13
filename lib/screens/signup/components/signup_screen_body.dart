@@ -15,13 +15,15 @@ class SignupScreenBody extends StatelessWidget {
           padding: const EdgeInsets.all(15.0),
           child: ListView(
             children: [
-              signupScreenTitle(),
-              signupScreenSubTitle(),
+              signupScreenTitle(context),
+              const SizedBox(height: 8.0),
+              signupScreenSubTitle(context),
               SizedBox(height: 16.0),
               const SignupForm(),
               SizedBox(height: 24.0),
-              loginScreenRedirectLink(
-                  context), // if user has an account, redirect them to login screen when they tap the "Login" text
+
+              // if user has an account, redirect them to login screen when they tap the "Login" text
+              loginScreenRedirectLink(context),
             ],
           ),
         ),
@@ -34,6 +36,7 @@ class SignupScreenBody extends StatelessWidget {
       textAlign: TextAlign.center,
       TextSpan(
         text: "Already have an account?  ",
+        style: Theme.of(context).textTheme.bodySmall,
         children: [
           TextSpan(
             text: 'Login',
@@ -49,22 +52,18 @@ class SignupScreenBody extends StatelessWidget {
     );
   }
 
-  Text signupScreenSubTitle() {
-    return const Text(
+  Text signupScreenSubTitle(BuildContext context) {
+    return Text(
       'Simplify your crypto payments with us',
-      style: TextStyle(fontSize: 16.0, color: Colors.grey),
+      style: Theme.of(context).textTheme.titleSmall,
       textAlign: TextAlign.start,
     );
   }
 
-  Text signupScreenTitle() {
-    return const Text(
+  Text signupScreenTitle(BuildContext context) {
+    return Text(
       'Create Account',
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: 30.0,
-        fontWeight: FontWeight.bold,
-      ),
+      style: Theme.of(context).textTheme.titleLarge,
       textAlign: TextAlign.start,
     );
   }

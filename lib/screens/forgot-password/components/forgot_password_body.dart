@@ -11,17 +11,14 @@ class ForgotPasswordBody extends StatelessWidget {
       child: ListView(
         children: [
           Text(
-            'Forgot password',
-            style: TextStyle(
-              color: Colors.black,
-              fontSize: 30.0,
-              fontWeight: FontWeight.bold,
-            ),
+            'Forgot Password',
+            style: Theme.of(context).textTheme.titleLarge,
             textAlign: TextAlign.start,
           ),
+          const SizedBox(height: 12.0),
           Text(
             'Enter your email to recieve your password reset code.',
-            style: TextStyle(fontSize: 16.0, color: Colors.grey),
+            style: Theme.of(context).textTheme.titleSmall,
             textAlign: TextAlign.start,
           ),
           const SizedBox(height: 16.0),

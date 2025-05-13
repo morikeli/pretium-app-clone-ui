@@ -11,8 +11,8 @@ class OtpScreenBody extends StatelessWidget {
       padding: const EdgeInsets.all(15.0),
       child: ListView(
         children: [
-          otpScreenTitle(),
-          otpScreenSubTitle(),
+          otpScreenTitle(context),
+          otpScreenSubTitle(context),
           const SizedBox(height: 16.0),
           OtpForm(),
           const SizedBox(height: 24.0),
@@ -26,7 +26,8 @@ class OtpScreenBody extends StatelessWidget {
     return Text.rich(
       textAlign: TextAlign.center,
       TextSpan(
-        text: "Didn't receive code?  ",
+        text: "Didn't receive the code?  ",
+        style: Theme.of(context).textTheme.bodySmall,
         children: [
           TextSpan(
             text: 'Resend Code',
@@ -42,22 +43,18 @@ class OtpScreenBody extends StatelessWidget {
     );
   }
 
-  Text otpScreenSubTitle() {
+  Text otpScreenSubTitle(BuildContext context) {
     return Text(
       'Enter the verification code sent to your email.',
-      style: TextStyle(fontSize: 16.0, color: Colors.grey),
+      style: Theme.of(context).textTheme.titleSmall,
       textAlign: TextAlign.start,
     );
   }
 
-  Text otpScreenTitle() {
+  Text otpScreenTitle(BuildContext context) {
     return Text(
       'Verify Account',
-      style: TextStyle(
-        color: Colors.black,
-        fontSize: 30.0,
-        fontWeight: FontWeight.bold,
-      ),
+      style: Theme.of(context).textTheme.titleLarge,
       textAlign: TextAlign.start,
     );
   }

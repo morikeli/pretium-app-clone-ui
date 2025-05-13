@@ -1,6 +1,7 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:pretium_app_clone/screens/login/components/login_form.dart';
+import 'package:pretium_app_clone/theme/colors.dart';
 
 class LoginScreen extends StatefulWidget {
   static String routeName = '/login';
@@ -35,6 +36,7 @@ class _LoginScreenState extends State<LoginScreen> {
             formIcon(),
             SizedBox(height: 24.0),
             formTitle(),
+            const SizedBox(height: 12.0),
             formSubTitle(),
             const SizedBox(height: 40),
             LoginForm(
@@ -58,6 +60,7 @@ class _LoginScreenState extends State<LoginScreen> {
       textAlign: TextAlign.center,
       TextSpan(
         text: "Don't have an account?  ",
+        style: Theme.of(context).textTheme.bodySmall,
         children: [
           TextSpan(
             text: 'Sign Up',
@@ -76,17 +79,14 @@ class _LoginScreenState extends State<LoginScreen> {
   Text formSubTitle() {
     return Text(
       'Sign in to continue',
-      style: TextStyle(
-        color: Colors.grey,
-        fontSize: 16.0,
-      ),
+      style: Theme.of(context).textTheme.titleSmall,
       textAlign: TextAlign.center,
     );
   }
 
   Text formTitle() {
     return Text(
-      'Welcome back!',
+      'Welcome Back!',
       style: TextStyle(
         fontSize: 24.0,
         fontWeight: FontWeight.bold,
@@ -99,13 +99,15 @@ class _LoginScreenState extends State<LoginScreen> {
     return Center(
       child: Container(
         decoration: BoxDecoration(
-            borderRadius: BorderRadius.circular(12.0),
-            color: Colors.teal.shade100,
-            shape: BoxShape.rectangle),
+          borderRadius: BorderRadius.circular(12.0),
+          color: kContainerLightColor,
+          shape: BoxShape.rectangle,
+        ),
         padding: EdgeInsets.all(16.0),
         child: Icon(
-          Icons.wallet,
-          color: Colors.teal.shade900,
+          Icons.account_balance_wallet,
+          color: kIconDarkColor,
+          size: 28.0,
         ),
       ),
     );
