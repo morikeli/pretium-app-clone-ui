@@ -15,3 +15,4 @@ const Color kTextGreenColor = Color(0xFF004D40);
 const Color kTextDarkColor = Color(0xFF000000);
 const Color kTextSecondaryColor = Color(0xFF8B8B8B);
 const Color kTextFormFieldLabelColor = Color(0xFF009688);
+const Color kDangerColor = Color(0xFFC21407);
