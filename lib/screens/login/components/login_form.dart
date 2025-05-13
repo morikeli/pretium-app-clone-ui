@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../common/custom_text_form_field.dart';
 import '../../../common/form_errors.dart';
 import '../../../constants/errors.dart';
+import '../../otp/otp_screen.dart';
 
 class LoginForm extends StatefulWidget {
   final GlobalKey<FormState> formKey;
@@ -113,7 +114,7 @@ class _LoginFormState extends State<LoginForm> {
               onPressed: () {
                 if (widget.formKey.currentState!.validate()) {
                   widget.formKey.currentState!.save();
-                  // Navigator.popAndPushNamed(context, OTPScreen.routeName);
+                  Navigator.popAndPushNamed(context, OtpScreen.routeName);
                 }
               },
               style: ElevatedButton.styleFrom(
