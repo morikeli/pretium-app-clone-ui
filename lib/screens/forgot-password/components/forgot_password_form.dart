@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import '../../../common/custom_text_form_field.dart';
 import '../../../common/form_errors.dart';
 import '../../../constants/errors.dart';
+import '../../../utils/reset_password_dialog.dart';
 
 class ForgotPasswordForm extends StatefulWidget {
   const ForgotPasswordForm({super.key});
@@ -38,7 +39,7 @@ class _ForgotPasswordFormState extends State<ForgotPasswordForm> {
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
-            // Navigator.popAndPushNamed(context, LoginScreen.routeName);
+            showResetCodeSentDialog(context, _emailController.text);
           }
         },
         child: const Text(
