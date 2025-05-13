@@ -1,4 +1,4 @@
-# Petrium Mobile Clone App
+# Pretium Mobile Clone App
 
 ## Mobile app screenshots
 | Splash screen | Onboarding scrren |
@@ -17,7 +17,7 @@
 | | |
 
 ## Overview
-The Petrium Clone App is a streamlined mobile application developed with Flutter, replicating the core user authentication flow found in the original Petrium app. It offers a clean and responsive UI, following modern design principles and ensuring a smooth user experience.  
+The **Pretium Clone App** is a streamlined mobile application developed with Flutter, replicating the core user authentication flow found in the original Pretium app. It offers a clean and responsive UI, following modern design principles and ensuring a smooth user experience.  
 
 ### Core features
 1. Onboarding Screens
@@ -82,7 +82,7 @@ This is a frontend-only clone focusing on the user interface and flow. Backend i
 Clone this repository by opening your terminal/CMD and change the current working directory to Desktop - use `cd Desktop` command.
 ```bash
     $ cd Desktop
-    $ git clone https://github.com/morikeli/TuShare.git
+    $ git clone https://github.com/morikeli/pretium-app-clone-ui.git
 ```
 
 2. Open the cloned repository on your text editor and run this command:
