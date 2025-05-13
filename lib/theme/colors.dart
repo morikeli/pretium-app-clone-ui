@@ -6,6 +6,7 @@ const Color kScaffoldBgLightColor = Color(0xFFFFFFFF);
 const Color kScaffoldBgDarkcolor = Color(0xFF000000);
 const Color kContainerLightColor = Color(0xCCE0E0E0);
 const Color kContainerDarkColor = Color(0xFF004D40);
+const Color kButtonDarkColor = Color(0xFF004D40);
 const Color kIconDarkColor = Color(0xFF004D40);
 const Color kIconLightColor = Color(0xFFFFFFFF);
 const Color kTextLightColor = Color(0xFFFFFFFF);
