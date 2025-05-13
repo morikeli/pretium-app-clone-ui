@@ -35,6 +35,13 @@ class _LoginFormState extends State<LoginForm> {
   }
 
   @override
+  void dispose() {
+    widget.emailController.dispose();
+    widget.passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: widget.formKey,
@@ -63,6 +70,8 @@ class _LoginFormState extends State<LoginForm> {
         onPressed: () {
           if (widget.formKey.currentState!.validate()) {
             widget.formKey.currentState!.save();
+            widget.emailController.clear();
+            widget.passwordController.clear();
             Navigator.pushNamed(context, OtpScreen.routeName);
           }
         },
