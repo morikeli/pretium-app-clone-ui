@@ -10,3 +10,6 @@ const String kLongFirstNameError = 'First name provided is too long!';
 const String kLastNameNullError = 'Please enter a valid name!';
 const String kShortLastNameError = 'Last name provided is too short!';
 const String kLongLastNameError = 'Last name provided is too long!';
+const String kShortOTPCodeError = 'OTP code provided is short!';
+const String kOTPCodeError = 'Please enter a valid OTP code!';
+const String kOTPCodeVerificationError = 'Verification failed!';
