@@ -32,6 +32,8 @@ class _OtpFormState extends State<OtpForm> {
       key: _formKey,
       child: Column(
         children: [
+          countryPickerDropdown(),
+          const SizedBox(height: 20.0),
           otpCodeTextField(),
           FormErrorsWidget(errors: formErrors),
           const SizedBox(height: 24.0),
