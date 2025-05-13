@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:pretium_app_clone/screens/login/login_screen.dart';
+import 'package:pretium_app_clone/theme/colors.dart';
+import 'package:toastification/toastification.dart';
 
 import '../../../common/custom_text_form_field.dart';
 import '../../../constants/errors.dart';
@@ -59,6 +61,23 @@ class _SignupFormState extends State<SignupForm> {
       child: ElevatedButton(
         onPressed: () {
           if (_formKey.currentState!.validate()) {
+            if (!_hasReadTermsAndConditions) {
+              // show toast notification
+              toastification.show(
+                context: context,
+                icon: Icon(Icons.error_outline, color: kIconLightColor),
+                title: const Text('Please accept the Terms and Conditions', style: TextStyle(color: kTextLightColor)),
+                type: ToastificationType.error,
+                style: ToastificationStyle.fillColored,
+                alignment: Alignment.bottomCenter,
+                showProgressBar: true,
+                autoCloseDuration: const Duration(seconds: 7),
+                backgroundColor: kDangerColor,
+                dragToClose: true,
+                pauseOnHover: true,
+              );
+              return;
+            }
             _formKey.currentState!.save();
             _firstNameController.clear();
             _lastNameController.clear();
