@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 
 import '../../../common/form_errors.dart';
 import '../../../constants/errors.dart';
+import '../../login/login_screen.dart';
 
 class OtpForm extends StatefulWidget {
   const OtpForm({super.key});
@@ -60,7 +61,9 @@ class _OtpFormState extends State<OtpForm> {
 
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
-            // Navigator.popAndPushNamed(context, LoginScreen.routeName);
+            _emailController.clear();
+            _countryController.clear();
+            Navigator.popAndPushNamed(context, LoginScreen.routeName);
           }
 
         },

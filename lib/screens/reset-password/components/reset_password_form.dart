@@ -22,6 +22,14 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
   bool obscureConfirmPassword = true;
 
   @override
+  void dispose() {
+    _codeController.dispose();
+    _newPasswordController.dispose();
+    _confirmPasswordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
@@ -49,6 +57,10 @@ class _ResetPasswordFormState extends State<ResetPasswordForm> {
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
+            // clear text fields
+            _codeController.clear();
+            _confirmPasswordController.clear();
+            _newPasswordController.clear();
             Navigator.popAndPushNamed(context, LoginScreen.routeName);
           }
         },

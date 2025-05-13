@@ -24,6 +24,15 @@ class _SignupFormState extends State<SignupForm> {
   bool _hasReadTermsAndConditions = false;
 
   @override
+  void dispose() {
+    _firstNameController.dispose();
+    _lastNameController.dispose();
+    _emailController.dispose();
+    _passwordController.dispose();
+    super.dispose();
+  }
+
+  @override
   Widget build(BuildContext context) {
     return Form(
       key: _formKey,
@@ -54,6 +63,10 @@ class _SignupFormState extends State<SignupForm> {
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
+            _firstNameController.clear();
+            _lastNameController.clear();
+            _emailController.clear();
+            _passwordController.clear();
             Navigator.popAndPushNamed(context, LoginScreen.routeName);
           }
         },

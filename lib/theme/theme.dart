@@ -14,6 +14,7 @@ class PretiumAppTheme {
     dividerColor: Colors.white,
     elevatedButtonTheme: PretiumAppElevatedButtonTheme.elevatedButtonLightTheme,
     inputDecorationTheme: PretiumAppInputDecorationTheme.inputDecorationLightTheme,
+    // progressIndicatorTheme: PretiumAppProgressIndicatorTheme.progressIndicatorLightTheme,
     scaffoldBackgroundColor: kScaffoldBgLightColor,
     textTheme: PretiumAppTextTheme.lightTextTheme,
   );
@@ -23,6 +24,7 @@ class PretiumAppTheme {
     dividerColor: Colors.black,
     elevatedButtonTheme: PretiumAppElevatedButtonTheme.elevatedButtonDarkTheme,
     inputDecorationTheme: PretiumAppInputDecorationTheme.inputDecorationDarkTheme,
+    // progressIndicatorTheme: PretiumAppProgressIndicatorTheme.progressIndicatorDarkTheme,
     scaffoldBackgroundColor: kScaffoldBgDarkcolor,
     textTheme: PretiumAppTextTheme.darkTextTheme,
   );
