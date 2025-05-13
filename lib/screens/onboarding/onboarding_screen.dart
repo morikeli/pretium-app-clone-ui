@@ -63,31 +63,35 @@ class _OnboardingScreenState extends State<OnboardingScreen> {
         itemCount: onboardingItems.length,
         itemBuilder: (context, index) {
           final item = onboardingItems[index];
-          return Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                CircleAvatar(
-                  radius: 56.0,
-                  backgroundColor: Colors.grey.shade200,
-                  child: item.icon,
-                ),
-                SizedBox(height: 32),
-                Text(
-                  item.title,
-                  style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
-                ),
-                SizedBox(height: 16),
-                Text(
-                  item.description,
-                  textAlign: TextAlign.center,
-                  style: TextStyle(fontSize: 16, color: Colors.grey),
-                ),
-              ],
-            ),
-          );
+          return pageContentWidget(item);
         },
+      ),
+    );
+  }
+
+  Padding pageContentWidget(OnboardingItem item) {
+    return Padding(
+      padding: const EdgeInsets.symmetric(horizontal: 16.0),
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          CircleAvatar(
+            radius: 56.0,
+            backgroundColor: Colors.grey.shade200,
+            child: item.icon,
+          ),
+          SizedBox(height: 32),
+          Text(
+            item.title,
+            style: TextStyle(fontSize: 24, fontWeight: FontWeight.bold),
+          ),
+          SizedBox(height: 16),
+          Text(
+            item.description,
+            textAlign: TextAlign.center,
+            style: TextStyle(fontSize: 16, color: Colors.grey),
+          ),
+        ],
       ),
     );
   }
